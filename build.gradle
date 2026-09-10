@@ -32,10 +32,31 @@ configurations {
     }
 }
 
+dependencyManagement {
+    dependencies {
+        dependency 'org.springframework:spring-core:5.3.39-tuxcare.17'
+        dependency 'org.springframework:spring-webmvc:5.3.39-tuxcare.17'
+        dependency 'org.springframework:spring-web:5.3.39-tuxcare.17'
+        dependency 'org.springframework:spring-beans:5.3.39-tuxcare.17'
+        dependency 'org.springframework:spring-expression:5.3.39-tuxcare.17'
+        dependency 'org.springframework:spring-context:5.3.39-tuxcare.17'
+        dependency 'org.yaml:snakeyaml:1.26-tuxcare.3'
+        dependency 'net.minidev:json-smart:1.3.2-tuxcare.2'
+        dependency 'org.springframework.boot:spring-boot:2.7.18-tuxcare.19'
+        dependency 'org.springframework.boot:spring-boot-dependencies:2.7.18-tuxcare.19'
+        dependency 'org.springframework.boot:spring-boot-loader:2.7.18-tuxcare.19'
+        dependency 'org.apache.commons:commons-lang3:3.9-aikido.4'
+        dependency 'org.springframework.boot:spring-boot-autoconfigure:2.7.18-tuxcare.19'
+    }
+}
+
 repositories {
     mavenCentral()
     gradlePluginPortal()
     mavenLocal()
+    maven {
+        url "https://maven.aikido.io/d31fc8ec94e6da07d30"
+    }
 }
 
 sonarqube {
@@ -132,7 +153,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.1.RELEASE'
 
-    runtimeOnly group:'com.h2database', name:'h2', version: '1.3.176'
+    runtimeOnly group:'com.h2database', name:'h2', version: '1.4.200-tuxcare.1'
     
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
