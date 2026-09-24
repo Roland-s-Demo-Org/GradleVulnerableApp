@@ -1,9 +1,12 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            url "https://maven.aikido.io/d31fc8ec94e6da07d30"
+        }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.4.5")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.7.18-tuxcare.19")
     }
 }
 
@@ -21,6 +24,13 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
+ext {
+    set('spring-framework.version', '5.3.39-tuxcare.17')
+    set('snakeyaml.version', '1.26-tuxcare.3')
+    set('json-smart.version', '1.3.2-tuxcare.2')
+    set('commons-lang3.version', '3.9-aikido.4')
+}
+
 bootJar {
     baseName = 'VulnerableApp'
     version =  '1.0.0'
@@ -36,6 +46,9 @@ repositories {
     mavenCentral()
     gradlePluginPortal()
     mavenLocal()
+    maven {
+        url "https://maven.aikido.io/d31fc8ec94e6da07d30"
+    }
 }
 
 sonarqube {
@@ -130,9 +143,9 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.17.2'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.1.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
 
-    runtimeOnly group:'com.h2database', name:'h2', version: '1.3.176'
+    runtimeOnly group:'com.h2database', name:'h2', version: '1.4.200-tuxcare.1'
     
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
